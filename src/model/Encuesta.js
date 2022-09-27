@@ -8,6 +8,10 @@ const encuestaSchema = new Schema({
     feedback: {
         type: String,
         required: true
+    },
+    id_usuario: {
+        type: String,
+        required: true
     }
 })
 
