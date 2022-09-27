@@ -1,7 +1,20 @@
 import { Encuesta } from '../model/Encuesta.js'
 
-export const datos = (req, res) => {
+export const datos = async (req, res) => {
+    try {
+        const {id_usuario} = req.body
 
+        const encuesta = await Encuesta.find({id_usuario})
+
+        if(!encuesta) return res.status(400).json({message: 'no hay encuestas'})
+
+        return res.status(200).json({
+            encuesta
+        })
+
+    } catch (error) {
+        
+    }
 }
 
 export const registrar = async (req, res) => {
